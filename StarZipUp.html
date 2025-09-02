@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="theStyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="script.js"></script>
+  <title>Product Page</title>
+</head>
+<h1 class="slogan">
+    Wear the Change, Make a Difference.
+  </h1>
+  <header>
+    <a href="Home.html" class="homebutton">
+      <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+      
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+        
+      </ul>
+    </nav>
+    <ul>
+      <li>
+        <a href="Contact.html" class="cta">
+          <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <a href="ShoppingCart.html" class="cta">
+          <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <button onclick="openSearch()" class="cts">
+              <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+            </button>
+          </li>
+          <div class="search-overlay" id="searchOverlay">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+                <ul class="suggestions" id="suggestions"></ul>
+                <button class="close-btn" onclick="closeSearch()">Close</button>
+            </div> 
+      </li>
+    
+    
+  </ul>
+  </header>
+<body>
+    <div class="grid-container">
+     <div class="grid-item">
+        
+        <div class="star-item">
+                <img src="White Caps Images/White Caps Clothes/Star Hoodie.jpg" alt="Star Hoodie">
+                
+            </a>
+            <div class="product-details">
+                <center>
+                <h1  class="item-paragraph"> Forest Star Zip-Up Hoodie</h1>
+                <p class="item-paragraph">$40.00</p>
+            
+        
+        
+            
+                
+                
+                <p  class="item-paragraph">Select Size:</p>
+                <div class="size-options">
+                <br>
+                <br>
+                <button class="size">S</button>
+                <button class="size">M</button>
+                <button class="size">L</button>
+                </div>
+               
+                <button class="addtocart" onclick="addToCart('Star Zip-Up Hoodie', 40.00)" >Add to Cart</button>
+            </center>
+            </div>
+            </div>
+        </div>
+
+ 
+
+
+ 
+
+
+  <div class="grid-item">
+
+
+
+      <p class="clothes-paragraph">Designed at 300 gsm, this piece is perfect for cool, windy days when you just need an extra layer. The thick organic cotton provides the hoodie with a comfortable texture and
+        a subtle layer of warmth. The cropped fit and the beautifully crafted star puff-print on the sleeves as well as a classic white caps print on the back of the garment
+          will add a delightful character to any casual outfit. </p>
+
+          <br>
+          <br>
+            <center>
+          <p style="font-family: 'Winky Sans', sans-serif;">Sizing Chart</p>
+        </center>
+
+        <style>
+            table {
+           
+                width: 60%;
+                border-collapse: collapse;
+                margin: 20px auto;
+                text-align: center;
+                font-family: 'DM Sans', sans-serif;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+                
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+         
+        </style>
+
+        <table>
+            <tr>
+                <th>Size</th>
+                <th>Recommended Height</th>
+                <th>Chest Width (in)</th>
+                <th>Sleeve Length (in)</th>
+                <th>Hoodie Length (in)</th>
+            </tr>
+            <tr class="highlight">
+                <td>S</td>
+                <td>5'0" - 5'6"</td>
+                <td>24</td>
+                <td>23</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>5'7" - 5'10"</td>
+                <td>26</td>
+                <td>24.5</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>5'11" +</td>
+                <td>28</td>
+                <td>26</td>
+                <td>29</td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+
+
+  
+
+
+
+  <script src="script.js"></script>
+
+  <footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+        
+          <ul>
+            <li>
+              <div class="circlelogo" >
+                <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+              </div>
+            </li>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="NewAboutUs.html">About Us</a></li>
+            <li><a href="">Contact Information</a></li>
+          </ul>
+      </div>
+
+      
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

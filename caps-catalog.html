@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="theStyle.css">
+  <script src="script.js"></script>
+  <title>Hats Layout</title>
+
+  <script>
+    function addToCart(item, price, imageUrl) {
+        let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+        // Add new item to the cart
+        cart.push({ item, price, imageUrl });
+
+        // Save back to localStorage
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+
+        alert(`${item} has been added to your cart!`);
+        loadCart(); // Refresh cart display
+    }
+</script>
+ 
+</head>
+
+<body>
+  <h1 class="slogan">
+    Wear the Change, Make a Difference.
+  </h1>
+    <header>
+        <a href="Home.html" class="homebutton">
+          <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+        </a>
+        <nav class="navbar">
+          <ul class="nav_links">
+            <li><a href="Shop.html">Shop</a></li>
+        
+            <li><a href="NewAboutUs.html">About</a></li>
+            <li><a href="donation.html">Fundraiser</a></li>
+            
+          </ul>
+        </nav>
+        <ul>
+          <li>
+            <a href="Contact.html" class="cta">
+              <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+            </a>
+          </li>
+          <li>
+            <a href="ShoppingCart.html" class="cta">
+              <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+            </a>
+          </li>
+          <li>
+            <button onclick="openSearch()" class="cts">
+              <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+            </button>
+          <div class="search-overlay" id="searchOverlay">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+                <ul class="suggestions" id="suggestions"></ul>
+                <button class="close-btn" onclick="closeSearch()">Close</button>
+            </div> 
+          </li>
+        
+        
+      </ul>
+      </header>
+      <br>
+      <center>
+        <h1 style="font-family: 'Arial', serif; font-weight: bold; color: black;"" > 
+          Organic Caps
+        </h1>
+        <br>
+  
+    
+      </center>
+
+        <div class="hat-container">
+            <div class="hat-item">
+              <a href="organiccottoncap.html">
+                <img src="White Caps Images/White Caps Clothes/caps.png" alt="Cotton Cap">
+                
+              </a>
+              
+              <div class="cap-label" style="color:black;">
+                Organic Cotton Cap
+              </div>
+              <div>
+                <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$30.00</p>
+                <button onclick="addToCart('Cap', 30.00, caps.png)">Add to Cart</button>
+         
+              </div>
+            
+            </div>
+
+            <div class="hat-item">
+              <a href="organiccottoncap.html">
+                <img src="White Caps Images/White Caps Clothes/caps.png" alt="Cotton Cap">
+              </a>
+              
+              <div class="cap-label" style="color:black;">
+                Organic Cotton Cap
+              </div>
+              <div>
+                <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$30.00</p>
+                <button onclick="addToCart('Cap', 30.00)">Add to Cart</button>
+              </div>
+            
+            </div>
+
+            <div class="hat-item">
+              <a href="organiccottoncap.html">
+                <img src="White Caps Images/White Caps Clothes/caps.png" alt="Cotton Cap">
+              </a>
+              
+              <div class="cap-label" style="color:black;">
+                Organic Cotton Cap
+              </div>
+              <div>
+                <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$30.00</p>
+                <button onclick="addToCart('Cap', 30.00)">Add to Cart</button>
+              </div>
+            
+            </div>
+
+            <div class="hat-item">
+              <a href="organiccottoncap.html">
+                <img src="White Caps Images/White Caps Clothes/caps.png" alt="Cotton Cap">
+              </a>
+              
+              <div class="cap-label" style="color:black;">
+                Organic Cotton Cap
+              </div>
+              <div>
+                <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$30.00</p>
+                <button onclick="addToCart('Cap', 30.00)">Add to Cart</button>
+              </div>
+            
+            </div>
+          </div>
+
+          
+
+
+       
+      
+      
+</body>
+
+
+<footer class="footer">
+    <div class="footerContainer">
+      
+      <div class="socialIcons">
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@whitecapsclothing?_t=ZP-8suGQp4f4f8&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+          <ul>
+            <li>
+              <div class="circlelogo" >
+              
+               <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+              </div>
+            </li>
+            <li><a href="WebsiteDesign.html">Home</a></li>
+            <li><a href="NewAboutUs.html">About Us</a></li>
+            <li><a href="">Contact Information</a></li>
+          </ul>
+      </div>
+      
+      
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+</html>

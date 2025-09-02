@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+    <h1 id="total-price">Total Price: $0.00</h1>
+    <button onclick="displayTotalPrice()">Show Total Price</button>
+    <button onclick="clearCart()">Clear Cart</button>
+
+    <script>
+        function displayTotalPrice() {
+            const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+            
+            document.getElementById('total-price').textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        }
+
+        function clearCart() {
+            localStorage.removeItem('shoppingCart'); // Remove cart data
+            displayTotalPrice(); // Update display to reflect empty cart
+            alert("Cart has been cleared!");
+        }
+
+        // Call function when page loads to display correct total
+        window.onload = displayTotalPrice;
+    </script>
+
+</body>
+</html>

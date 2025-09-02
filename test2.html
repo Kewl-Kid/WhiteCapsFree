@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+</head>
+<body>
+    <h1>Order Form</h1>
+    <form id="orderForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="items">Items Ordered:</label>
+        <input type="text" id="items" name="items" required><br><br>
+
+        <label for="totalPrice">Total Price:</label>
+        <input type="number" id="totalPrice" name="totalPrice" step="0.01" required><br><br>
+
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                address: document.getElementById('address').value,
+                items: document.getElementById('items').value,
+                totalPrice: document.getElementById('totalPrice').value
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbz3GMNqHjvM2dwXj_be4zXKKdKkuNZbUylftrgDF_NJW729KtsIJ3Mti-duimxuWpTm/exec', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                mode: 'no-cors' 
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Order submitted successfully!');
+                document.getElementById('orderForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Order Submitted Successfully!");
+            });
+        });
+    </script>
+</body>
+</html>

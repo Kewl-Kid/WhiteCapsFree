@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <link rel="stylesheet" href="theStyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>White Caps Clothing</title>
+    </head>
+    <h1 class="slogan">
+      Wear the Change, Make a Difference.
+    </h1>
+    <header>
+      <a href="Home.html" class="homebutton">
+        <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+      </a>
+      <nav class="navbar">
+        <ul class="nav_links">
+          <li><a href="Shop.html">Shop</a></li>
+     
+          <li><a href="NewAboutUs.html">About</a></li>
+          <li><a href="donation.html">Fundraiser</a></li>
+          
+        </ul>
+      </nav>
+      <ul>
+        <li>
+          <a href="Contact.html" class="cta">
+            <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+          </a>
+        </li>
+        <li>
+          <a href="ShoppingCart.html" class="cta">
+            <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+          </a>
+        </li>
+        <li>
+          <button onclick="openSearch()" class="cts">
+              <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+            </button>
+          </li>
+          <div class="search-overlay" id="searchOverlay">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+                <ul class="suggestions" id="suggestions"></ul>
+                <button class="close-btn" onclick="closeSearch()">Close</button>
+            </div> 
+        </li>
+      
+      
+    </ul>
+    </header>
+  <body> 
+    <section  class="how-it-works">
+        <h2><strong>How It Works</strong> </h2>
+        <br>
+        <p><strong>
+            Our mission is to help preserve marine life and create cleaner oceans for future generations.</strong> </p>
+            <br>
+       
+          <li><strong>Step 1:</strong> Shop our eco-friendly clothing collection.</li><br>
+          <li><strong>Step 2:</strong> Make a purchase and support the cause.</li><br>
+          <li><strong>Step 3:</strong> A percentage of every sale is donated to ocean charities.</li><br>
+          <li><strong>Step 4:</strong> Track our fundraising progress and see the impact!</li>
+          <br>
+    
+      </section>
+
+        <!-- Fundraiser Tracker Section -->
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="White Caps Videos/Seal.mp4" autoplay muted loop type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    
+        <!-- Donation Counter -->
+        <div class="counter-container">
+           $0
+        </div>
+  </section>
+      
+   
+  
+    
+  
+  <footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+        
+          <ul>
+            <li>
+              <div class="circlelogo" >
+                <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+              </div>
+            </li>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="NewAboutUs.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+      </div>
+
+      
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

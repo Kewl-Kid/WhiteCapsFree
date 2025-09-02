@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="theStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<padding>
+    <h1 class="slogan">
+      Wear the Change, Make a Difference.
+    </h1>
+  </padding>
+<header>
+    <a href="Home.html" class="homebutton">
+      <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+  
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+        
+      </ul>
+    </nav>
+    <ul>
+      <li>
+        <a href="Contact.html" class="cta">
+          <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <a href="ShoppingCart.html" class="cta">
+          <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <button onclick="openSearch()" class="cts">
+          <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+        </button>
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+            <ul class="suggestions" id="suggestions"></ul>
+            <button class="close-btn" onclick="closeSearch()">Close</button>
+        </div> 
+      </li>
+    
+    
+  </ul>
+  </header>
+<body>
+    <div class="container">
+      <center>
+        <h1 style="margin: 2% 2%; font-family: DM Sans; background-color: white; padding: 1% 1%">How Can We Help?</h1>
+      </center>
+        <p>Have any questions or feedback? Fill out the form below and we'll get back to you soon!</p>
+        
+        <form id="contact-form">
+            <label for="name"  style="width: 80%; height: 40px;">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email"  style="width: 80%; height: 30px;">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message" tyle="width: 80%; height: 100px;">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <br>
+
+            <button type="submit" style="border-radius: 5%; color: white; background-color: black; font-family: DM Sans;
+            width: 12%; padding-top: 1%; padding-bottom: 1%;">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for reaching out! We will get back to you soon.');
+        });
+
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    };
+
+    fetch("http://localhost:3001/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(error => console.error("Error:", error));
+    });
+    </script>
+</body>
+ 
+<footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+        
+          <ul>
+            <li>
+              <div class="circlelogo" >
+                <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+              </div>
+            </li>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="NewAboutUs.html">About Us</a></li>
+            <li><a href="">Contact Information</a></li>
+          </ul>
+      </div>
+
+      
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+</html>

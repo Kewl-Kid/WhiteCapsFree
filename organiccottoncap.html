@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="theStyle.css">
+  <script src="script.js"></script>
+  <title>Product Page</title>
+</head>
+<h1 class="slogan">
+    Wear the Change, Make a Difference.
+  </h1>
+  <header>
+    <a href="Home.html" class="homebutton">
+      <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+    
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+        
+      </ul>
+    </nav>
+    <ul>
+      <li>
+        <a href="Contact.html" class="cta">
+          <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <a href="Cart.html" class="cta">
+          <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <button onclick="openSearch()" class="cts">
+              <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+            </button>
+          </li>
+          <div class="search-overlay" id="searchOverlay">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+                <ul class="suggestions" id="suggestions"></ul>
+                <button class="close-btn" onclick="closeSearch()">Close</button>
+            </div> 
+      </li>
+    
+    
+  </ul>
+  </header>
+<body>
+  <div class="hat-container">
+    <div class="product-images">
+      <img id="main-image" src="White Caps Images/White Caps Clothes/Shirt.jpg" alt="Main Product Image">
+    </div>
+    <div class="product-details">
+      <h1>Cashmere Sweater</h1>
+      <p class="price">$49.90</p>
+      <p>Select Color:</p>
+      <div class="color-options">
+        <div class="color" data-image="image-orange.png" style="background-color: orange;"></div>
+        <div class="color" data-image="image-green.png" style="background-color: green;"></div>
+        <div class="color" data-image="image-black.png" style="background-color: black;"></div>
+      </div>
+      <p>Select Size:</p>
+      <div class="size-options">
+        <button class="size">S</button>
+        <button class="size">M</button>
+        <button class="size">L</button>
+      </div>
+      <button onclick="addToCart('Cap', 29.99)">Add to Cart</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+  <footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+        
+          <ul>
+            <li>
+              <div class="circlelogo" >
+                <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+              </div>
+            </li>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="NewAboutUs.html">About Us</a></li>
+            <li><a href="">Contact Information</a></li>
+          </ul>
+      </div>
+
+      
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
