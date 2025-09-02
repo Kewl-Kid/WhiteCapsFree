@@ -3,31 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Password Protected Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #order-summary {
+            margin-bottom: 20px;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #content-container {
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 2rem;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 100%;
+        }
+        @media (min-width: 768px) {
+            #content-container {
+                flex-direction: row;
+            }
+            .flex-1{
+               flex: 1;
+               min-width: 0;
+            }
+        }
+        .order-box {
+            margin-bottom: 20px;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 1.5rem; /* Added margin between boxes */
+        }
+    </style>
 </head>
-<body>
+  <padding>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div id="password-container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <a href="index.html" class="homebutton">
+            <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" style="padding-bottom: 20px; display: block; margin-left: auto; margin-right: auto" height="150px" width="150px">
+          </a>
+        <h1 class="text-2xl font-semibold text-blue-600 mb-4 text-center">Enter Password</h1>
+        <div id="error-message" class="text-red-500 text-sm mb-4 text-center" style="display: none;"></div>
+        <div class="mb-4">
+            <input type="password" id="password-input" placeholder="Enter password" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+        </div>
+        <button id="login-button" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400">Login</button>
+    </div>
 
-    <h1 id="total-price">Total Price: $0.00</h1>
-    <button onclick="displayTotalPrice()">Show Total Price</button>
-    <button onclick="clearCart()">Clear Cart</button>
+    <div id="content-container" class=" ">
+        <div class="flex-1">
+            <a href="index.html" class="homebutton">
+                <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" style="padding-bottom: 20px; display: block; margin-left: auto; margin-right: auto" height="200px" width="200px">
+              </a>
+              <h1 class="text-xl font-semibold text-gray-800 mb-6 text-center" style="padding-bottom: 20px; display: block; margin-left: auto; margin-right: auto">White Caps Clo.</h1>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">View Complaints</h2>
+            <div id="complaints-list" class="space-y-4">
+                </div>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Order Details</h2>
+            <div id="order-summary" class="  mb-8">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Order Summary</h3>
+                <p id="total-orders" class="text-gray-600">Total Orders: 0</p>
+                <p id="total-revenue" class="text-gray-600">Total Revenue: $0.00</p>
+            </div>
+            <div id="recent-orders-container">
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1hdUrf-qfmpvlVHoXLzvjxiOIhHIVvXjeUpcHNeghqUs/edit?gid=0#gid=0" target="_blank" style="display: block; margin-left: auto; margin-right: auto" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                View All Orders
+            </a>
+        </div>
+    </div>
 
     <script>
-        function displayTotalPrice() {
-            const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-            const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-            
-            document.getElementById('total-price').textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        const passwordContainer = document.getElementById('password-container');
+        const contentContainer = document.getElementById('content-container');
+        const passwordInput = document.getElementById('password-input');
+        const loginButton = document.getElementById('login-button');
+        const errorMessage = document.getElementById('error-message');
+        //complaints
+        const complaintsList = document.getElementById('complaints-list');
+        //orders
+        const totalOrdersElement = document.getElementById('total-orders');
+        const totalRevenueElement = document.getElementById('total-revenue');
+        const recentOrdersContainer = document.getElementById('recent-orders-container');
+
+        const correctPassword = "LbzT12!"; // Change this to your desired password
+        const googleSheetId = "2PACX-1vTe0zXJc59hVDXiJ_DqurB9V199LDOM199vrqPjSrJ6nOzT4OA1wvSIfR_rLmWptizwK-jfJU7NmcRC"; // Replace with your sheet ID
+        const worksheetName = "Sheet1";  // Replace with your worksheet name
+
+
+        loginButton.addEventListener('click', function() {
+            const enteredPassword = passwordInput.value;
+
+            if (enteredPassword === correctPassword) {
+                passwordContainer.style.display = 'none';
+                contentContainer.style.display = 'flex'; // Show the content
+                displayComplaints();
+                displayOrders();
+            } else {
+                errorMessage.textContent = "Incorrect password. Please try again.";
+                errorMessage.style.display = 'block';
+                passwordInput.value = '';
+            }
+        });
+
+        function displayComplaints() {
+            let complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+            complaintsList.innerHTML = '';
+
+            if (complaints.length === 0) {
+                complaintsList.innerHTML = '<p class="text-gray-500 text-center" style="padding-bottom: 20px; display: block; margin-left: auto; margin-right: auto">No complaints found.</p>';
+                return;
+            }
+
+            complaints.forEach((complaint, index) => {
+                const complaintDiv = document.createElement('div');
+                complaintDiv.classList.add('bg-white', 'border', 'border-gray-200', 'rounded-lg', 'p-4', 'shadow-md', 'flex', 'justify-between', 'items-center');
+                complaintDiv.setAttribute('data-complaint-index', index); // Store the index
+
+                const complaintDetails = document.createElement('div');
+                complaintDetails.classList.add('space-y-2');
+                complaintDetails.innerHTML = `
+                    <p class="text-gray-700"><strong>Email:</strong> ${complaint.email}</p>
+                    <p class="text-gray-700"><strong>Name:</strong> ${complaint.name}</p>
+                    <p class="text-gray-700"><strong>Description:</strong> ${complaint.description}</p>
+                    <p class="text-gray-500 text-sm"><strong>Submitted:</strong> ${new Date(complaint.timestamp).toLocaleString()}</p>
+                `;
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = complaint.resolved;
+                checkbox.classList.add('mr-2', 'cursor-pointer');
+                checkbox.id = `resolve-checkbox-${index}`;
+
+                const label = document.createElement('label');
+                label.htmlFor = `resolve-checkbox-${index}`;
+                label.textContent = 'Resolved';
+                label.classList.add('text-gray-700', 'font-medium', 'cursor-pointer');
+
+                const checkboxContainer = document.createElement('div');
+                checkboxContainer.classList.add('flex', 'items-center');
+                checkboxContainer.appendChild(checkbox);
+                checkboxContainer.appendChild(label);
+
+
+                checkbox.addEventListener('change', () => {
+                    complaints[index].resolved = checkbox.checked;
+                    localStorage.setItem('complaints', JSON.stringify(complaints));
+                    if (checkbox.checked) {
+                        complaintDiv.remove(); // Remove the complaint from the DOM
+                        // Remove from localStorage as well
+                        let updatedComplaints = JSON.parse(localStorage.getItem('complaints')) || [];
+                        updatedComplaints.splice(index, 1);
+                        localStorage.setItem('complaints', JSON.stringify(updatedComplaints));
+
+                    }
+                    displayComplaints();
+                });
+
+                complaintDiv.appendChild(complaintDetails);
+                complaintDiv.appendChild(checkboxContainer);
+                complaintsList.appendChild(complaintDiv);
+            });
         }
 
-        function clearCart() {
-            localStorage.removeItem('shoppingCart'); // Remove cart data
-            displayTotalPrice(); // Update display to reflect empty cart
-            alert("Cart has been cleared!");
-        }
+        function displayOrders() {
+            Tabletop.init({
+                key: googleSheetId,
+                callback: function(data, tabletop) {
+                    if (tabletop.errors.length) {
+                        console.error('Error fetching data from Google Sheets:', tabletop.errors);
+                        recentOrdersContainer.innerHTML = '<p class="text-red-500 text-center">Failed to load orders from Google Sheets.</p>';
+                        totalOrdersElement.textContent = `Total Orders: 0`;
+                        totalRevenueElement.textContent = `Total Revenue: $0.00`;
+                        return;
+                    }
 
-        // Call function when page loads to display correct total
-        window.onload = displayTotalPrice;
+                    let orders = data;  // Data is already an array of objects
+                    recentOrdersContainer.innerHTML = '';
+                    let totalRevenue = 0;
+
+                    if (orders.length === 0) {
+                        recentOrdersContainer.innerHTML = '<p class="text-gray-500 text-center">No orders found.</p>';
+                        totalOrdersElement.textContent = `Total Orders: 0`;
+                        totalRevenueElement.textContent = `Total Revenue: $0.00`;
+                        return;
+                    }
+
+                    //show only the last 3 orders
+                    const recentOrders = orders.slice(-3);
+
+                    recentOrders.forEach((order, index) => {
+                        const orderDiv = document.createElement('div');
+                        orderDiv.classList.add('order-box');
+                        orderDiv.innerHTML = `
+                            <p><strong>Order ID:</strong> ${orders.length - index}</p>
+                            <p><strong>Name:</strong> ${order.Name}</p>
+                            <p><strong>Address:</strong> ${order.Address}</p>
+                            <p><strong>Items:</strong> ${order["Items Ordered"]}</p>
+                            <p><strong>Total Price:</strong> ${order["Total Price"]}</p>
+                        `;
+                        recentOrdersContainer.appendChild(orderDiv);
+                        let price = parseFloat(order["Total Price"].replace('$', ''));
+                        if(!isNaN(price)){
+                            totalRevenue += price;
+                        }
+
+                    });
+
+                    totalOrdersElement.textContent = `Total Orders: ${orders.length}`;
+                    totalRevenueElement.textContent = `Total Revenue: $${totalRevenue.toFixed(2)}`;
+                },
+                simpleSheet: true,
+                worksheetName: worksheetName
+            });
+        }
     </script>
-
 </body>
 </html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Gallery</title>
+    <link rel="stylesheet" href="theStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<padding>
+    <h1 class="slogan">
+      Elegance woven from Nature.
+    </h1>
+  </padding>
+<header>
+    <a href="Home.html" class="homebutton">
+      <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+  
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+        
+      </ul>
+    </nav>
+    <ul>
+      <li>
+        <a href="Contact.html" class="cta">
+          <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <a href="ShoppingCart.html" class="cta">
+          <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <button onclick="openSearch()" class="cta">
+          <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+        </button>
+      </li>
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+            <ul class="suggestions" id="suggestions"></ul>
+            <button class="close-btn" onclick="closeSearch()">Close</button>
+        </div> 
+      </div>
+      <li>
+        <a href="inspiration.html" class="cta">
+          <img src="White Caps Images/whitelightbulb.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+    
+    
+  </ul>
+  </header>
+<body>
+    <title>White Caps Fit Gallery</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f9f9f9;
+      }
+  
+   
+  
+      .upload-section {
+        padding: 2rem;
+        background: #fff;
+        text-align: center;
+      }
+  
+      input, textarea, button {
+        margin: 0.5rem;
+        padding: 0.6rem;
+        width: 80%;
+        max-width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+      }
+  
+      .gallery-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+  
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+  
+      .caption {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+  
+   
+  
+    <section class="upload-section">
+      <h2>Feature coming soon!</h2>
+      <input type="file" id="imageInput" accept="image/*" />
+      <input type="text" id="nameInput" placeholder="Your name (optional)" />
+      <textarea id="captionInput" placeholder="Caption or shoutout..."></textarea>
+      <button onclick="uploadFit()">Upload</button>
+    </section>
+  
+    <section class="gallery" id="fitGallery">
+      <!-- Gallery items will appear here -->
+    </section>
+  
+    <script>
+      function uploadFit() {
+        const fileInput = document.getElementById('imageInput');
+        const name = document.getElementById('nameInput').value;
+        const caption = document.getElementById('captionInput').value;
+        const gallery = document.getElementById('fitGallery');
+  
+        if (fileInput.files.length === 0) {
+          alert("Please upload an image.");
+          return;
+        }
+  
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+  
+        reader.onload = function(e) {
+          const newItem = document.createElement('div');
+          newItem.className = 'gallery-item';
+  
+          newItem.innerHTML = `
+            <img src="${e.target.result}" alt="User Fit" />
+            <div class="caption">
+              <strong>${name || "Anonymous"}</strong><br/>
+              ${caption}
+            </div>
+          `;
+  
+          gallery.prepend(newItem);
+          // Clear inputs
+          fileInput.value = "";
+          document.getElementById('nameInput').value = "";
+          document.getElementById('captionInput').value = "";
+        };
+  
+        reader.readAsDataURL(file);
+      }
+    </script>
+
+    </script>
+  
+  </body>
+
+  <footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+        <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@whitecapsclothing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+        <ul>
+          <li>
+            <div class="circlelogo">
+              <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+            </div>
+          </li>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="NewAboutUs.html">About Us</a></li>
+          <li><a href="contact.html">Contact Information</a></li>
+        </ul>
+      </div>
+
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

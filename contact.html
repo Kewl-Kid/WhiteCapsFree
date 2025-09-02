@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          body {
+              font-family: 'Inter', sans-serif;
+          }
+        </style>
 </head>
 <padding>
     <h1 class="slogan">
-      Wear the Change, Make a Difference.
+      Elegance woven from Nature.
     </h1>
   </padding>
 <header>
@@ -39,78 +48,137 @@
         </a>
       </li>
       <li>
-        <button onclick="openSearch()" class="cts">
+        <button onclick="openSearch()" class="cta">
           <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
         </button>
+      </li>
       <div class="search-overlay" id="searchOverlay">
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
             <ul class="suggestions" id="suggestions"></ul>
             <button class="close-btn" onclick="closeSearch()">Close</button>
         </div> 
+      </div>
+      <li>
+        <a href="inspiration.html" class="cta">
+          <img src="White Caps Images/whitelightbulb.png" alt="cart" height="35px" width="35px">
+        </a>
       </li>
     
     
   </ul>
   </header>
 <body>
-    <div class="container">
-      <center>
-        <h1 style="margin: 2% 2%; font-family: DM Sans; background-color: white; padding: 1% 1%">How Can We Help?</h1>
-      </center>
-        <p>Have any questions or feedback? Fill out the form below and we'll get back to you soon!</p>
-        
-        <form id="contact-form">
-            <label for="name"  style="width: 80%; height: 40px;">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email"  style="width: 80%; height: 30px;">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message" tyle="width: 80%; height: 100px;">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            
-            <br>
-
-            <button type="submit" style="border-radius: 5%; color: white; background-color: black; font-family: DM Sans;
-            width: 12%; padding-top: 1%; padding-bottom: 1%;">Send Message</button>
-        </form>
+    <div class="bg-gray-100 flex justify-center items-center min-h-screen p-4">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+            <h1 class="text-2xl font-semibold text-blue-600 mb-6 text-center">How Can We Help?</h1>
+            <form id="complaint-form" class="space-y-4">
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="email" name="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <div id="email-error" class="text-red-500 text-xs italic" style="display: none;"></div>
+                </div>
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                    <input type="text" id="name" name="name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <div id="name-error" class="text-red-500 text-xs italic" style="display: none;"></div>
+                </div>
+                <div>
+                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Comment:</label>
+                    <textarea id="description" name="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    <div id="description-error" class="text-red-500 text-xs italic" style="display: none;"></div>
+                </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Submit Message</button>
+            </form>
+            <div id="success-message" class="mt-6 text-green-500 text-center" style="display: none;">Submitted Successfully!</div>
+        </div>
     </div>
-
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        const complaintForm = document.getElementById('complaint-form');
+        const emailInput = document.getElementById('email');
+        const nameInput = document.getElementById('name');
+        const descriptionInput = document.getElementById('description');
+        const emailError = document.getElementById('email-error');
+        const nameError = document.getElementById('name-error');
+        const descriptionError = document.getElementById('description-error');
+        const successMessage = document.getElementById('success-message');
+
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function showError(inputElement, errorMessageElement, message) {
+            inputElement.classList.add('border-red-500');
+            errorMessageElement.textContent = message;
+            errorMessageElement.style.display = 'block';
+        }
+
+        function hideError(inputElement, errorMessageElement) {
+            inputElement.classList.remove('border-red-500');
+            errorMessageElement.style.display = 'none';
+        }
+
+        complaintForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            alert('Thank you for reaching out! We will get back to you soon.');
+            let isValid = true;
+
+            const emailValue = emailInput.value.trim();
+            const nameValue = nameInput.value.trim();
+            const descriptionValue = descriptionInput.value.trim();
+
+            if (!validateEmail(emailValue)) {
+                showError(emailInput, emailError, 'Please enter a valid email address.');
+                isValid = false;
+            } else {
+                hideError(emailInput, emailError);
+            }
+
+            if (!nameValue) {
+                showError(nameInput, nameError, 'Please enter your name.');
+                isValid = false;
+            } else {
+                hideError(nameInput, nameError);
+            }
+
+            if (!descriptionValue) {
+                showError(descriptionInput, descriptionError, 'Please enter a description of your complaint.');
+                isValid = false;
+            } else {
+                hideError(descriptionInput, descriptionError);
+            }
+
+            if (isValid) {
+                const complaint = {
+                    email: emailValue,
+                    name: nameValue,
+                    description: descriptionValue,
+                    resolved: false,
+                    timestamp: new Date().toISOString()
+                };
+
+                let complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+                complaints.push(complaint);
+                localStorage.setItem('complaints', JSON.stringify(complaints));
+
+                successMessage.style.display = 'block';
+                complaintForm.reset();
+
+                 setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            }
         });
-
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value
-    };
-
-    fetch("http://localhost:3001/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.text())
-    .then(data => alert(data))
-    .catch(error => console.error("Error:", error));
-    });
     </script>
 </body>
  
 <footer>
     <div class="footerContainer">
-      <div class="socialIcons">
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      </div>
+        <div class="socialIcons">
+              <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@whitecapsclothing?_t=ZP-8suGQp4f4f8&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.youtube.com/@whitecapsclothing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
       <div class="footerNav">
         
           <ul>
@@ -121,13 +189,13 @@
             </li>
             <li><a href="Home.html">Home</a></li>
             <li><a href="NewAboutUs.html">About Us</a></li>
-            <li><a href="">Contact Information</a></li>
+            <li><a href="contact.html">Contact Information</a></li>
           </ul>
       </div>
 
       
       <div class="footerBottom">
-        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+        <p>Copyright ©2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
       </div>
     </div>
   </footer>

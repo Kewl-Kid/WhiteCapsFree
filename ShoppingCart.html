@@ -1,85 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1.0">
-        <link rel="stylesheet" href="theStyle.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>White Caps Clothing</title>
-        
-    </head>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="theStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>White Caps Clothing</title>
+    <style>
+        .cart-container {
+            display: flex; 
+            justify-content: left;
+            align-items: flex-start; /* Align content at the top */
+            width: 100%;
+            gap: 40px; /* Adds space between cart and form */
+        }
+
+
+        .orderForm {
+            flex: 1;
+            max-width: 50vw;
+        }
+
+        .cart-summary {
+            
+            max-width: 50vw;
+            max-height: 100vh;
+            padding: 2%; /* Reduce padding */
+            border-right: 2px solid #000000;
+        }
+        .img_logo {
+            padding-top: 5vh;
+        }
+
+        .cart-summary h2 {
+            font-family: 'DM Sans';
+        }
+
+        #items {
+            text-align: left;
+            font-family: 'DM Sans';
+            font-size: 80%;
+        }
+
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cart-item img {
+            width: 30%;
+            height: 30%;
+            margin: 1% 1%;
+            object-fit: fill;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .cart-item p{
+            font-family: 'DM Sans';
+            display: flex;
+            max-width: 25vw;
+        }
+
+        #total-price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
     <h1 class="slogan">
-      Wear the Change, Make a Difference.
+        Elegance woven from Nature.
     </h1>
     <header>
-      <a href="Home.html" class="homebutton">
-        <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
-      </a>
-      <nav class="navbar">
-        <ul class="nav_links">
-          <li><a href="Shop.html">Shop</a></li>
-
-          <li><a href="NewAboutUs.html">About</a></li>
-          <li><a href="donation.html">Fundraiser</a></li>
-          
+        <a href="Home.html" class="homebutton">
+            <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+        </a>
+        <nav class="navbar">
+            <ul class="nav_links">
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="NewAboutUs.html">About</a></li>
+                <li><a href="donation.html">Fundraiser</a></li>
+            </ul>
+        </nav>
+        <ul>
+            <li><a href="Contact.html" class="cta">
+                <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px"></a>
+            </li>
+            <li><a href="ShoppingCart.html" class="cta">
+                <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px"></a>
+            </li>
+            <li>
+                <button onclick="openSearch()" class="cta">
+                  <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+                </button>
+              </li>
+              <div class="search-overlay" id="searchOverlay">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+                    <ul class="suggestions" id="suggestions"></ul>
+                    <button class="close-btn" onclick="closeSearch()">Close</button>
+                </div> 
+              </div>
+              <li>
+                <a href="inspiration.html" class="cta">
+                  <img src="White Caps Images/whitelightbulb.png" alt="cart" height="35px" width="35px">
+                </a>
+              </li>
         </ul>
-      </nav>
-      <ul>
-        <li>
-          <a href="Contact.html" class="cta">
-            <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
-          </a>
-        </li>
-        <li>
-          <a href="ShoppingCart.html" class="cta">
-            <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
-          </a>
-        </li>
-        <li>
-          <a href="ShoppingCart.html" class="cta">
-            <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
-          </a>
-        </li>
-      
-      
-    </ul>
     </header>
 
-    <div >
+    <div>
+        <h1 style="font-family: 'Raleway', sans-serif; font-weight: 400; font-style: normal; margin: 2% 2%;">Shopping Cart</h1>
+        <div class="cart-container">
+            <div class="orderForm">
+                <center>
+                    <h1>Order Form</h1>
+                    <form id="orderForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required><br><br>
 
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" required><br><br>
+
+                        <label for="phonenumber">Phone Number:</label>
+                        <input type="text" id="phonenumber" name="phonenumber" required><br><br>
+
+                        <h1 id="total-price">Total Price: $0.00</h1>
+
+                        <br><br>
+
+                  
+
+                        <button type="button" onclick="clearCart()">Clear Cart</button>
+                        <button type="submit" id="submitBtn">Submit Order</button>
+                    </form>
+                </center>
+            </div>
+
+            <div class="cart-summary">
+                <div id="items"></div>
+            
+
+        </div>
+      
     </div>
     
-  <body> 
-    <h1 style="font-family: 'Raleway', sans-serif; font-weight: 400; font-style: normal; margin: 2% 2%;">Shopping Cart  </h1>
-    <div class="cart-container" >
-      <div class="grid-container">
-        <div class="grid-item">
-    <center>
-      <h1>Order Form</h1>
-      <form id="orderForm">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required><br><br>
 
-          <label for="address">Address:</label>
-          <input type="text" id="address" name="address" required><br><br>
 
-          <label for="phonenumber">Phone Number:</label>
-          <input type="text" id="phonenumber" name="phonenumber" required><br><br>
-
-          <label for="items">Items Ordered:</label>
-          <div id="items"></div>  <!-- This is where items will be displayed -->
-
-          
-          <br><br>
-          
-         
-          <h1 id="total-price">Total Price: $0.00</h1>
-
-    <button onclick="clearCart()">Clear Cart</button>
-        <script>
-          function displayOrder() {
+    <script>
+        // Display items in the cart
+        function displayOrder() {
     const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const itemsContainer = document.getElementById('items');
 
@@ -89,105 +167,156 @@
         itemsContainer.innerHTML = "<p>No items in cart.</p>";
     } else {
         cart.forEach(item => {
-            const itemElement = document.createElement('p');
-            itemElement.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+
+            const itemImage = document.createElement('img');
+            itemImage.src = "White Caps Images/White Caps Clothes/" + item.item + ".jpg";
+            itemImage.alt = item.item;
+
+            const itemDetails = document.createElement('p');
+            itemDetails.textContent = ` ${item.item} - Size: ${item.size} - $${item.price.toFixed(2)}`;
+
+            itemElement.appendChild(itemImage);
+            itemElement.appendChild(itemDetails);
             itemsContainer.appendChild(itemElement);
         });
     }
 }
 
-// Ensure items display when the page loads
-window.onload = function() {
-    displayOrder();
-   
-};
 
-
-        </script>
-    <script>
+        // Display total price
         function displayTotalPrice() {
             const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
             const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-            
             document.getElementById('total-price').textContent = `Total Price: $${totalPrice.toFixed(2)}`;
         }
 
-        function clearCart() {
-            localStorage.removeItem('shoppingCart'); // Remove cart data
-            displayTotalPrice(); // Update display to reflect empty cart
-            alert("Cart has been cleared!");
-        }
+        
+function clearCart() {
+    const itemsContainer = document.getElementById('items');
+    const items = itemsContainer.querySelectorAll('.cart-item');
 
-        // Call function when page loads to display correct total
-        window.onload = displayTotalPrice;
+    // Apply fade+scale animation to each cart item
+    items.forEach(item => {
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.8)';
+    });
+
+    // Wait for animation to finish, then clear cart
+    setTimeout(() => {
+        localStorage.removeItem('shoppingCart');
+        displayOrder();
+        displayTotalPrice();
+        alert("Cart has been cleared!");
+    }, 300);
+}
+
+
+        // Submit order and send data to Google Sheets
+     document.getElementById('orderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true; // disable immediately
+
+    const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const formData = {
+        name: document.getElementById('name').value,
+        address: document.getElementById('address').value,
+        phonenumber: document.getElementById('phonenumber').value,
+        items: cart.map(item => ` ${item.item} - Size: ${item.size} - $${item.price.toFixed(2)}`).join(', '),
+        totalPrice: document.getElementById('total-price').textContent,
+        orderDate: new Date().toLocaleString()
+    };
+
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push(formData);
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+    fetch('https://script.google.com/macros/s/AKfycbz3GMNqHjvM2dwXj_be4zXKKdKkuNZbUylftrgDF_NJW729KtsIJ3Mti-duimxuWpTm/exec', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'no-cors'
+    })
+    .then(() => {
+        alert('Order submitted successfully!');
+            confetti({  // <-- add this here
+      particleCount: 300,
+      spread: 100,
+      origin: { y: 0.6 },
+      scalar: 1.2,
+      ticks: 150,
+    });
+        document.getElementById('orderForm').reset();
+        localStorage.removeItem('shoppingCart');
+        displayOrder();
+        displayTotalPrice();
+
+        // Re-enable button after 5 seconds cooldown
+        setTimeout(() => {
+            submitBtn.disabled = false;
+        }, 5000);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Error submitting order.");
+        submitBtn.disabled = false; // re-enable immediately on error
+    });
+});
+
+        // Ensure items and total price display when the page loads
+        window.onload = function() {
+            displayOrder();
+            displayTotalPrice();
+        };
     </script>
 
-          
-          <button type="submit">Submit Order</button>
-          
-      </form>
-      <script>
-        document.getElementById('orderForm').addEventListener('submit', function(event) {
-              event.preventDefault();
-  
-              const formData = {
-                  name: document.getElementById('name').value,
-                  address: document.getElementById('address').value,
-                  items: document.getElementById('items').value,
-                  totalPrice: document.getElementById('totalPrice').value
-              };
-  
-              fetch('https://script.google.com/macros/s/AKfycbz3GMNqHjvM2dwXj_be4zXKKdKkuNZbUylftrgDF_NJW729KtsIJ3Mti-duimxuWpTm/exec', {
-                  method: 'POST',
-                  body: JSON.stringify(formData),
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  mode: 'no-cors' 
-              })
-              .then(response => response.json())
-              .then(data => {
-                  alert('Order submitted successfully!');
-                  document.getElementById('orderForm').reset();
-              })
-              .catch(error => {
-                  console.error('Error:', error);
-                  alert("Order Submitted!");
-              });
-          });
-        
-      </script>
-      
-    </center>
-  </div>
-  </div>
-  </div>
-  <footer>
-    <div class="footerContainer">
-      <div class="socialIcons">
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      </div>
-      <div class="footerNav">
-        
-          <ul>
-            <li>
-              <div class="circlelogo" >
-                <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
-              </div>
-            </li>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="NewAboutUs.html">About Us</a></li>
-            <li><a href="">Contact Information</a></li>
-          </ul>
-      </div>
+<div class="info-p">
+               
+    <h1>IMPORTANT INFO:</h1>
+    <p>---------------------------------------------------------</p>
+    <p>Currently, bank payment is not set up, so we will  
+    accept venmo, zelle, or in-person transactions for the  
+    products. We will contact you with updates on production/delivery with sms. Feel free to contact us for any questions or concerns such as shipping updates or discounts. 
+    
+    Thank you!  </p>
 
-      
-      <div class="footerBottom">
-        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
-      </div>
-    </div>
-  </footer>
+    <padding>
+    <img src="White Caps Images/WhiteCapsCircleLogo.png" class="img_logo" alt="logo">
+
+</div>
+
+    <footer>
+        <div class="footerContainer">
+          <div class="socialIcons">
+              <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.youtube.com/@whitecapsclothing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div class="footerNav">
+            
+              <ul>
+                <li>
+                  <div class="circlelogo" >
+                    <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+                  </div>
+                </li>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="NewAboutUs.html">About Us</a></li>
+                <li><a href="contact.html">Contact Information</a></li>
+              </ul>
+          </div>
+    
+          
+          <div class="footerBottom">
+            <p>Copyright ©2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+          </div>
+        </div>
+      </footer>
 </body>
 </html>

@@ -1,76 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"
-        <meta name="viewport" content="width=device-width, inital-scale=1.0">
-        <link rel="stylesheet" href="theStyle.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="theStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>White Caps Clothing</title>
-        <script src="script.js"></script>
-    </head>
+</head>
+<padding>
     <h1 class="slogan">
-      Wear the Change, Make a Difference.
+      Elegance woven from Nature.
     </h1>
-    <header>
-      <a href="Home.html" class="homebutton">
-        <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
-      </a>
-      <nav class="navbar">
-        <ul class="nav_links">
-          <li><a href="Shop.html">Shop</a></li>
- 
-          <li><a href="NewAboutUs.html">About</a></li>
-          <li><a href="donation.html">Fundraiser</a></li>
-          
-        </ul>
-      </nav>
-      <ul>
-        <li>
-          <a href="Contact.html" class="cta">
-            <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
-          </a>
-        </li>
-        <li>
-          <a href="ShoppingCart.html" class="cta">
-            <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
-          </a>
-        </li>
-        <li>
-          <button onclick="openSearch()" class="cts">
-              <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
-            </button>
-          </li>
-          <div class="search-overlay" id="searchOverlay">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
-                <ul class="suggestions" id="suggestions"></ul>
-                <button class="close-btn" onclick="closeSearch()">Close</button>
-            </div> 
-        </li>
-      
-      
+  </padding>
+  <header>
+    <a href="Home.html" class="homebutton">
+      <img class="float" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+      </ul>
+    </nav>
+    <ul>
+      <li>
+        <a href="Contact.html" class="cta">
+          <img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <a href="ShoppingCart.html" class="cta">
+          <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+      <li>
+        <button onclick="openSearch()" class="cta">
+          <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+        </button>
+      </li>
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+            <ul class="suggestions" id="suggestions"></ul>
+            <button class="close-btn" onclick="closeSearch()">Close</button>
+        </div> 
+      </div>
+      <li>
+        <a href="inspiration.html" class="cta">
+          <img src="White Caps Images/whitelightbulb.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
     </ul>
-    </header>
+  </header>
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Antonio:wght@100..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Major+Mono+Display&family=Outfit:wght@100..900&family=Playwrite+AU+SA:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap'); 
+
+    .lookbook-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  justify-items: center;
+  background-color: rgba(214, 213, 157, 0.229);
+
+}
+
+.left-column, .right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 5vw;
+}
+
+.left-column img {
+  margin-left: 1vw;
+  width: 30vw;
+  align-self: center;
+  height: auto;
+  object-fit: cover;
+  border-radius: 2%;
+  aspect-ratio: 1 / 1;
+}
+
+.right-column img {
+  margin-left: 1vw;
+  width: 30vw;
+  align-self: center;
+  border-radius: 2%;
+  height: auto;
+ 
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.leftcolumn-item{
+  text-align: left;
+   padding-left: 10%;
+  background: #fff;
+  border: 1% solid #ddd;
+  border-radius: 8px;
+   padding-top: 5%;
+    padding-bottom: 5%;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.5vw;
+  font-weight: medium;
+  font-family: 'Antonio', serif; 
+   color: black;
+   
+   margin-bottom: 4vh;
+      justify-content: center;
+   
+}
+
+.rightcolumn-item{
+  padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: left;
+     padding-left: 10%;
+  background: #fff;
+  border: 1% solid #ddd;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.5vw;
+  font-weight: medium;
+  font-family: 'Antonio', serif; 
+   color: black;
+   margin-top: 2vh;
+   margin-bottom: 2vh;
+      justify-content: center;
+   
+
+}
+
+ .shop-description{
+  margin-top: 2vh; 
+  font-family: 'DM Sans', sans-serif;
+   font-size: 2vw; 
+   color: #333;
+
+ }
+
+ .fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up {
+  transition-delay: 0s;
+}
+.fade-in-up:nth-child(1) { transition-delay: 0s; }
+.fade-in-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth fade for images */
+.fade-in-up img {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.show img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.shop-description {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.shop-description.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.left-column img,
+.right-column img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left-column img:hover,
+.right-column img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+  </style>
+  
+
+ 
+<script>
+  document.addEventListener('mousemove', e => {
+  const cursor = document.getElementById('cursor');
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+</script>
+
   <body> 
+    <div id="cursor"></div>
+
+    <center>
+  <div class="shop-description" >
+    Discover ethically crafted streetwear inspired by nature and designed for bold self-expression.
+  </div>
+</center>
+
     <center>
     <h2 class="mensh2"> </h2>
     </center>
 
-    <div class="hat-container">
-      <div class="hat-item">
+    <div class="lookbook-grid">
+       <div class="left-column">
+      <div class="leftcolumn-item">
         <a href="StarZipUp.html">
-          <img src="White Caps Images/White Caps Clothes/Star Hoodie.jpg" alt="Star Hoodie">
+          <img src="White Caps Images/White Caps Clothes/Stars and Galaxies Zip-Up Hoodie.jpg" alt="Star Hoodie">
           
         </a>
         
         <div class="cap-label" style="color:black;">
-          Star Zip Up Hoodie
+          Stars & Galaxies Zip Up Hoodie
         </div>
         <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$40.00</p>
-          <button onclick="addToCart('Star Zip-Up Hoodie', 40.00)" style="margin-top: 5px; ">Add to Cart</button>
+          <p>$45.00</p>
+          
         </div>
       
       </div>
@@ -78,7 +249,64 @@
 
       
 
-      <div class="hat-item">
+     
+
+      <div class="leftcolumn-item">
+        <a href="W_C-Shirt.html">
+          <img src="White Caps Images/White Caps Clothes/W-C Shirt.jpg" alt="W/C Shirt">
+          
+        </a>
+        
+        <div class="cap-label" style="color:black;">
+          W/C Shirt
+        </div>
+        <div>
+          <p >$15.00</p>
+         
+        </div>
+      
+      </div>
+
+       <div class="leftcolumn-item">
+        <a href="WashedSweats.html">
+          <img src="White Caps Images/White Caps Clothes/White Caps Sweatpants.avif" alt="Washed Sweatpants">
+          
+        </a>
+        
+        <div class="cap-label" style="color:black;">
+          Acid Washed Sweatpants
+        </div>
+        <div>
+          <p>$24.50</p>
+       
+        </div>
+      
+      </div>
+
+      
+      <div class="leftcolumn-item">
+        <a href="W_C-Cap.html">
+          <img src="White Caps Images/White Caps Clothes/W_C Cap.jpg" alt="Washed Sweatpants">
+          
+        </a>
+        
+        <div class="cap-label" style="color:black;">
+          W/C Cap
+        </div>
+        <div>
+          <p>$18.00</p>
+       
+        </div>
+      
+      </div>
+      
+      </div>
+      
+
+       <div class="right-column">
+
+
+          <div class="rightcolumn-item">
         <a href="8hoodie.html">
           <img src="White Caps Images/White Caps Clothes/8 Hoodie.png" alt="8 Hoodie">
           
@@ -88,45 +316,30 @@
           8 Hoodie
         </div>
         <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$27.00</p>
-          <button onclick="addToCart('8 Hoodie', 27.00)" style="margin-top: 5px; ">Add to Cart</button>
+          <p >$32.50</p>
+         
         </div>
       
       </div>
 
-      <div class="hat-item">
-        <a href="W/C-Shirt.html">
-          <img src="White Caps Images/White Caps Clothes/W-C Shirt.jpg" alt="W/C Shirt">
-          
-        </a>
-        
-        <div class="cap-label" style="color:black;">
-          W/C Shirt
-        </div>
-        <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$15.00</p>
-          <button onclick="addToCart('W/C Shirt', 15.00)" style="margin-top: 5px; ">Add to Cart</button>
-        </div>
-      
-      </div>
-
-      <div class="hat-item">
+      <div class="rightcolumn-item">
         <a href="WashedShirt.html">
           <img src="White Caps Images/White Caps Clothes/Washed Gray Shirt.avif" alt="Washed Sweatpants">
           
         </a>
         
         <div class="cap-label" style="color:black;">
-          Oversized Washed Shirt
+          Oversized Acid Washed Shirt
         </div>
         <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$15.00</p>
-          <button onclick="addToCart('Oversized Wahsed Shirt', 15.00)" style="margin-top: 5px; ">Add to Cart</button>
+          <p >$16.50</p>
+          
         </div>
-      
-      </div>
+        </div>
 
-      <div class="hat-item">
+      
+
+      <div class="rightcolumn-item">
         <a href="WhiteCapsShorts.html">
           <img src="White Caps Images/White Caps Clothes/White Caps Embroidered Shorts.png" alt="Washed Sweatpants">
           
@@ -136,63 +349,47 @@
           W/C Shorts
         </div>
         <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$24.00</p>
-          <button onclick="addToCart('W/C Shorts', 24.00)" style="margin-top: 5px; ">Add to Cart</button>
+          <p >$24.50</p>
+      
         </div>
       
       </div>
 
-      <div class="hat-item">
-        <a href="WashedSweats.html">
-          <img src="White Caps Images/White Caps Clothes/White Caps Sweatpants.avif" alt="Washed Sweatpants">
-          
-        </a>
-        
-        <div class="cap-label" style="color:black;">
-          Washed Sweatpants
-        </div>
-        <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$21.00</p>
-          <button onclick="addToCart('Washed Sweatpants', 21.00)" style="margin-top: 5px; ">Add to Cart</button>
-        </div>
-      
-      </div>
+     
 
-      <div class="hat-item">
-        <a href="W/C-Cap.html">
-          <img src="White Caps Images/White Caps Clothes/W_C Cap.png" alt="Washed Sweatpants">
-          
-        </a>
-        
-        <div class="cap-label" style="color:black;">
-          W/C Cap
-        </div>
-        <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$18.00</p>
-          <button onclick="addToCart('W/C Cap', 18.00)" style="margin-top: 5px; ">Add to Cart</button>
-        </div>
-      
-      </div>
 
-       <div class="hat-item">
-        <a href="HighWaves.html">
-          <img src="White Caps Images/White Caps Clothes/High Waves Shirt Front.png" alt="Washed Sweatpants">
-          
-        </a>
-        
-        <div class="cap-label" style="color:black;">
-          High Waves Graphic Shirt
-        </div>
-        <div>
-          <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$15.00</p>
-          <button onclick="addToCart('High Waves Graphic Shirt', 15.00)" style="margin-top: 5px; ">Add to Cart</button>
-        </div>
-      
+      </div>
       </div>
       
 
-    
-    </div>
+
+
+
+
+   <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.leftcolumn-item, .rightcolumn-item').forEach(item => {
+      item.classList.add('fade-in-up');
+      observer.observe(item);
+    });
+
+    const desc = document.querySelector('.shop-description');
+    if (desc) {
+      setTimeout(() => desc.classList.add('visible'), 300);
+    }
+  });
+</script>
+
     
   
   <footer>
@@ -200,7 +397,7 @@
       <div class="socialIcons">
           <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.youtube.com/@whitecapsclothing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
       </div>
       <div class="footerNav">
         
@@ -212,7 +409,7 @@
             </li>
             <li><a href="Home.html">Home</a></li>
             <li><a href="NewAboutUs.html">About Us</a></li>
-            <li><a href="">Contact Information</a></li>
+            <li><a href="contact.html">Contact Information</a></li>
           </ul>
       </div>
 
@@ -222,5 +419,20 @@
       </div>
     </div>
   </footer>
+ 
+
+<div class="wave-container">
+  <svg class="wave wave-back" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path fill="#0077be" d="M0,30 C150,80 350,0 600,30 C850,60 1050,0 1200,30 L1200,120 L0,120 Z" />
+  </svg>
+  <svg class="wave wave-front" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path fill="#00aaff" d="M0,40 C150,90 350,10 600,40 C850,70 1050,10 1200,40 L1200,120 L0,120 Z" />
+  </svg>
+</div>
+
+
+
+
+
 </body>
 </html>

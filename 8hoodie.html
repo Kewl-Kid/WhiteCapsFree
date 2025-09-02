@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="theStyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="script.js"></script>
+  <title>Product Page</title>
+</head>
+<h1 class="slogan">
+  Elegance woven from Nature.
+  </h1>
+  <header>
+    <a href="Home.html" class="homebutton">
+      <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+      </ul>
+    </nav>
+    <ul>
+      
+      <li><a href="Contact.html" class="cta"><img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px"></a></li>
+       <li>
+        <a href="ShoppingCart.html" class="cta" id="cartIcon">
+          <img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+       
+      <li>
+        <button onclick="openSearch()" class="cta">
+          <img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px">
+        </button>
+      </li>
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+            <ul class="suggestions" id="suggestions"></ul>
+            <button class="close-btn" onclick="closeSearch()">Close</button>
+        </div> 
+      </div>
+      <li>
+        <a href="inspiration.html" class="cta">
+          <img src="White Caps Images/whitelightbulb.png" alt="cart" height="35px" width="35px">
+        </a>
+      </li>
+    </ul>
+  </header>
+  <script>
+    let currentSlide = 0;
+    
+    function moveSlide(direction) {
+      const slides = document.querySelector('.slides');
+      const images = document.querySelectorAll('.slides img');
+      const totalSlides = images.length;
+    
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    </script>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">
+      <div class="star-item">
+        <div class="product-slider">
+          <div class="slides">
+            <img src="White Caps Images/White Caps Clothes/8 Hoodie.jpg" alt="Star Hoodie">
+            <img src="White Caps Images/Model Pics/8 Hoodie Closeup.jpg" alt="Star Hoodie Back">
+            <img src="White Caps Images/Model Pics/Alice (1) - Copy.jpg" alt="Star Hoodie Closeup">
+            <img src="White Caps Images/White Caps Clothes/8HoodieColinBack.JPG" alt="Star Hoodie Back">
+            <img src="White Caps Images/Model Pics/DuoBack - Copy (2).jpg" alt="Star Hoodie Closeup">
+          </div>
+          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <div class="product-details">
+          <center>
+            <h1 class="item-paragraph">8 Hoodie</h1>
+            <p class="item-paragraph">$32.50</p>
+            <p class="item-paragraph">Select Size:</p>
+            <div class="size-options">
+              <br><br>
+              <button class="size" data-size="S">S</button>
+              <button class="size" data-size="M">M</button>
+              <button class="size" data-size="L">L</button>
+              <button class="size" data-size="XL">XL</button>
+            </div>
+            <button class="addtocart" onclick="addToCart('8 Hoodie', 32.50)">Add to Cart</button>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <p class="clothes-paragraph">
+        The '08 Hoodie is a tribute to our origins. The front keeps it minimal, just the ‘08 and logo,
+         keeping it subtle but personal. On the back, three bold 8s stand out, looping around in a design that speaks to rhythm, energy, and the essence of identity. 
+         Made from heavyweight organic cotton, it’s comfortable but still has that clean, refined look. The DTG prints ensure everything stays crisp over time—no cracks,
+          no fading. It's a hoodie that carries a message, a piece of the past,
+         but with a timeless vibe that you can wear wherever you go.</p>
+
+      <br><br>
+      <center>
+        <p style="font-family: 'Winky Sans', sans-serif;">Sizing Chart</p>
+      </center>
+
+      <style>
+        table {
+          width: 60%;
+          border-collapse: collapse;
+          margin: 20px auto;
+          text-align: center;
+          font-family: 'DM Sans', sans-serif;
+        }
+        th, td {
+          border: 1px solid black;
+          padding: 10px;
+        }
+        th {
+          background-color: #f4f4f4;
+        }
+      </style>
+
+      <table>
+        <tr>
+          <th>Size </th>        
+          <th>Hoodie Length (cm)</th>
+          <th>Sleeve Length (cm)</th>
+          <th>Shoulder Width(cm)</th>
+          <th>Bust (in)</th>
+        </tr>
+        <tr class="highlight">
+          <td>S</td>
+          <td>66</td>
+          <td>62</td>
+          <td>44.5</td>
+          <td>108</td>
+        </tr>
+        <tr>
+          <td>M</td>
+          <td>69</td>
+          <td>64.5</td>
+          <td>46</td>
+          <td>112</td>
+        </tr>
+        <tr>
+          <td>L</td>
+          <td>72</td>
+          <td>67</td>
+          <td>48</td>
+          <td>118</td>
+        </tr>
+
+        <tr>
+          <td>XL</td>
+          <td>75</td>
+          <td>69.5</td>
+          <td>51.5</td>
+          <td>126</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <h1 style="margin: 2% 2%; font-family: 'DM Sans'; font-size: 2vw;">Official Styling</h1>
+  <div class="gallery">
+   
+   
+    <div class="card">
+      <img src="White Caps Images/Model Pics/Alice.jpg" alt="Look 1">
+  
+    </div>
+
+    <div class="card">
+      <img src="White Caps Images/Model Pics/Ham.jpg" alt="Look 2">
+  
+    </div>
+
+    <div class="card">
+      <img src="White Caps Images/Model Pics/DuoBack.jpg" alt="Look 3">
+  
+    </div>
+    
+   
+
+
+    
+  </div>
+
+  <h1 style="margin: 2% 2%; font-family: 'DM Sans'; font-size: 2vw;">Style With: </h1>
+
+  <div class="hat-container">  
+  <div class="hat-item">
+    <a href="WashedSweats.html">
+      <img src="White Caps Images/White Caps Clothes/White Caps Sweatpants.avif" alt="Washed Sweatpants">
+      
+    </a>
+    
+    <div class="cap-label" style="color:black;">
+      Acid Washed Sweatpants
+    </div>
+    <div>
+      <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$24.50</p>
+   
+    </div>
+  
+  </div>
+
+<div class="hat-item">
+  <a href="WhiteCapsShorts.html">
+    <img src="White Caps Images/White Caps Clothes/White Caps Embroidered Shorts.png" alt="Washed Sweatpants">
+    
+  </a>
+  
+  <div class="cap-label" style="color:black;">
+    W/C Shorts
+  </div>
+  <div>
+    <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$24.50</p>
+
+  </div>
+
+</div>
+
+
+<div class="hat-item">
+  <a href="W_C-Cap.html">
+    <img src="White Caps Images/White Caps Clothes/W_C Cap.jpg" alt="Washed Sweatpants">
+    
+  </a>
+  
+  <div class="cap-label" style="color:black;">
+    W/C Cap
+  </div>
+  <div>
+    <p style="font-family: 'Major Mono Display', serif; font-weight: bolder;font-size: medium; color: black;">$18.00</p>
+ 
+  </div>
+
+</div>
+</div>
+
+<main>
+  <!-- Recently Viewed -->
+
+
+<!-- Reviews -->
+<section id="reviewsSection">
+  <h2>Customer Reviews</h2>
+
+  <form id="reviewForm">
+    <input type="text" id="reviewerName" placeholder="Your name" required>
+    <select id="reviewRating" required>
+  <option value="">Rating</option>
+  <option value="1">★☆☆☆☆</option>
+  <option value="2">★★☆☆☆</option>
+  <option value="3">★★★☆☆</option>
+  <option value="4">★★★★☆</option>
+  <option value="5">★★★★★</option>
+</select>
+
+    
+    <textarea id="reviewComment" placeholder="Write your review here" required></textarea>
+    <button type="submit">Submit Review</button>
+  </form>
+
+  <div id="reviewsList"></div>
+</section>
+</main>
+
+  <script>
+    // Handle size selection
+    const sizeButtons = document.querySelectorAll('.size');
+    let selectedSize = null;
+
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        sizeButtons.forEach(b => b.classList.remove('selected')); // Remove 'selected' class from all buttons
+        button.classList.add('selected'); // Add 'selected' class to clicked button
+        selectedSize = button.dataset.size; // Store the selected size
+      });
+    });
+
+    // Function to add to cart
+    
+   function addToCart(item, price) {
+  if (!selectedSize) {
+    alert("Please select a size before adding to the cart.");
+    return;
+  }
+
+  const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  cart.push({ item, price, size: selectedSize });
+  localStorage.setItem('shoppingCart', JSON.stringify(cart));
+
+  // Trigger cart animation
+  const cartIcon = document.getElementById("cartIcon");
+  cartIcon.classList.remove("animate"); // Reset if already animated
+  void cartIcon.offsetWidth; // Force reflow to restart animation
+  cartIcon.classList.add("animate");
+
+  showToast(`${item} (Size: ${selectedSize}) added to cart.`);
+}
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.className = "toast show";
+  setTimeout(() => {
+    toast.className = toast.className.replace("show", "");
+  }, 3000); // Hide after 3 seconds
+}
+
+    const PRODUCT_ID = "whitecaps-8hoodie"; // Unique ID for  reviews
+
+    // --- Reviews System ---
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewsList = document.getElementById('reviewsList');
+
+    function loadReviews() {
+      const allReviews = JSON.parse(localStorage.getItem('reviews')) || {};
+      const productReviews = allReviews[PRODUCT_ID] || [];
+
+      reviewsList.innerHTML = "";
+      if (productReviews.length === 0) {
+        reviewsList.innerHTML = "<p>No reviews yet. Be the first to review!</p>";
+        return;
+      }
+
+      productReviews.forEach((review, idx) => {
+        const div = document.createElement('div');
+        div.style.border = "1px solid #ccc";
+        div.style.padding = "10px";
+        div.style.marginBottom = "10px";
+
+        div.innerHTML = `
+          <strong>${review.name}</strong> — Rating: ${'⭐️'.repeat(review.rating)}<br>
+          <p>${review.comment}</p>
+          <button class="deleteReviewBtn" data-idx="${idx}">Delete Review</button>
+        `;
+        reviewsList.appendChild(div);
+      });
+
+      document.querySelectorAll('.deleteReviewBtn').forEach(button => {
+        button.addEventListener('click', () => {
+          const adminPass = prompt("Enter admin password to delete review:");
+          if (adminPass === "WhiteCaps008") {
+            deleteReview(button.dataset.idx);
+          } else {
+            alert("Incorrect password!");
+          }
+        });
+      });
+    }
+
+    function deleteReview(index) {
+      const allReviews = JSON.parse(localStorage.getItem('reviews')) || {};
+      const productReviews = allReviews[PRODUCT_ID] || [];
+      productReviews.splice(index, 1);
+      allReviews[PRODUCT_ID] = productReviews;
+      localStorage.setItem('reviews', JSON.stringify(allReviews));
+      loadReviews();
+    }
+
+    reviewForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reviewerName').value.trim();
+      const rating = parseInt(document.getElementById('reviewRating').value);
+      const comment = document.getElementById('reviewComment').value.trim();
+
+      if (!name || !rating || !comment) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const newReview = { name, rating, comment };
+      let allReviews = JSON.parse(localStorage.getItem('reviews')) || {};
+      if (!allReviews[PRODUCT_ID]) allReviews[PRODUCT_ID] = [];
+      allReviews[PRODUCT_ID].push(newReview);
+      localStorage.setItem('reviews', JSON.stringify(allReviews));
+
+      reviewForm.reset();
+      loadReviews();
+    });
+
+    loadReviews();
+  </script>
+
+  <footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+              <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@whitecapsclothing?_t=ZP-8suGQp4f4f8&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.youtube.com/@whitecapsclothing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+      <div class="footerNav">
+        <ul>
+          <li>
+            <div class="circlelogo">
+              <img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left">
+            </div>
+          </li>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="NewAboutUs.html">About Us</a></li>
+          <li><a href="contact.html">Contact Information</a></li>
+        </ul>
+      </div>
+
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span> </p>
+      </div>
+    </div>
+  </footer>
+  <div id="toast" class="toast">Item added to cart.</div>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White Caps Lookbook</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+      <link rel="stylesheet" href="theStyle.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Antonio:wght@100..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Major+Mono+Display&family=Outfit:wght@100..900&family=Playwrite+AU+SA:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+  
+
+    .lookbook-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .left-column, .right-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .left-column img,
+    .right-column img {
+      width: 50vw;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 2 / 3;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="slogan">Elegance woven from Nature.</h1>
+
+  <header>
+    <a href="Home.html" class="homebutton">
+      <img class="homelogo" src="White Caps Images/WhiteCapsCircleLogo.png" alt="logo" height="80px" width="80px">
+    </a>
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="Shop.html">Shop</a></li>
+        <li><a href="NewAboutUs.html">About</a></li>
+        <li><a href="donation.html">Fundraiser</a></li>
+      </ul>
+    </nav>
+    <ul>
+      <li><a href="Contact.html" class="cta"><img src="White Caps Images/phone.png" alt="phone" height="35px" width="35px"></a></li>
+      <li><a href="ShoppingCart.html" class="cta"><img src="White Caps Images/cart.png" alt="cart" height="35px" width="35px"></a></li>
+      <li><button onclick="openSearch()" class="cta"><img src="White Caps Images/Search.png" alt="Search" height="35px" width="35px"></button></li>
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search..." oninput="searchItems()">
+          <ul class="suggestions" id="suggestions"></ul>
+          <button class="close-btn" onclick="closeSearch()">Close</button>
+        </div>
+      </div>
+      <li><a href="inspiration.html" class="cta"><img src="White Caps Images/whitelightbulb.png" alt="cart" height="35px" width="35px"></a></li>
+    </ul>
+  </header>
+
+  <center>
+    <h1 style="font-family: 'Raleway'; font-size: 7vw; color: white; background-color: black; padding: 3% 3%;">Lookbook</h1>
+  </center>
+
+  <!-- Lookbook Layout -->
+  <div class="lookbook-grid">
+    <div class="left-column">
+      <img src="White Caps Images/Model Pics/ColinInsideSitting.png" alt="Look 1">
+      <img src="White Caps Images/Model Pics/ShannonMirror.jpg" alt="Look 2">
+      <img src="White Caps Images/Model Pics/Rivers-10 (1).jpg" alt="Look 2">
+      <img src="White Caps Images/Model Pics/Colin.jpg" alt="Look 5">
+      <img src="White Caps Images/Model Pics/Alice (1).jpg" alt="Look 3">
+      <img src="White Caps Images/Model Pics/Duo.jpg" alt="Look 1">
+      <img src="White Caps Images/Model Pics/Alice.jpg" alt="Look 4">
+      <img src="White Caps Images/Model Pics/Shannon.jpg" alt="Look 4">
+    </div>
+    <div class="right-column">
+      <img src="White Caps Images/Model Pics/ColinBasketball.png" alt="Look 6">
+      <img src="White Caps Images/Model Pics/WillBlackHoodie2GoodoNE.png" alt="Look 7">
+      <img src="White Caps Images/Model Pics/WillSittingWholeFit.png" alt="Look 2">
+      <img src="White Caps Images/Model Pics/OutsideShortsWill.JPG" alt="Look 8">
+      <img src="White Caps Images/Model Pics/WillWashedShirt - Copy.jpg" alt="Look 9">
+      <img src="White Caps Images/Model Pics/AliceBack.png" alt="Look 10">
+      <img src="White Caps Images/Model Pics/Ham.jpg" alt="Look 6">
+      <img src="White Caps Images/Model Pics/WillLookingSomewhere.png" alt="Look 6">
+    </div>
+  </div>
+
+  <footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+        <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.instagram.com/whitecapsclothing?igsh=bHYxdnh6M3ZuZ3h4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@whitecapsclothing" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footerNav">
+        <ul>
+          <li><div class="circlelogo"><img src="White Caps Images/WhiteCapsCircleLogo.png" height="100px" width="100px" align="left"></div></li>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="NewAboutUs.html">About Us</a></li>
+          <li><a href="contact.html">Contact Information</a></li>
+        </ul>
+      </div>
+      <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Nathan Wulur and Rehan Saneesh</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for animation on scroll -->
+  <script>
+    const images = document.querySelectorAll('.left-column img, .right-column img');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    images.forEach(image => {
+      observer.observe(image);
+    });
+  </script>
+</body>
+</html>
